@@ -17,5 +17,6 @@ for (x = 0; x < 10; x++)
 		putchar(0x20);
 	}
 }
+putchar('\n');
 return (0);
 }
