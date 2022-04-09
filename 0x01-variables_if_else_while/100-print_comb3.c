@@ -8,6 +8,7 @@ int main(void)
 {
 int a;
 int b;
+int c;
 
 for (a = 0; a <= 9; a++)
 {
@@ -17,8 +18,11 @@ for (a = 0; a <= 9; a++)
 		{
 			putchar((a % 10) + '0');
 			putchar((b % 10) + '0');
+		if (a + b != 17)
+		{
 			putchar(',');
 			putchar(' ');
+		}
 		}
 	}
 }
