@@ -18,6 +18,7 @@ for (a = 0; a <= 9; a++)
 			putchar((a % 10) + '0');
 			putchar((b % 10) + '0');
 			putchar(',');
+			putchar(' ');
 		}
 	}
 }
