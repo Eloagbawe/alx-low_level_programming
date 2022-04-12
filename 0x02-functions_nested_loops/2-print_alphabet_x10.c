@@ -4,15 +4,19 @@
  * *  *   *   *   *   *   *
  * loops ten times and calls the print_alphabet function each time
  *
- * Return: all the letters in the alphabet followed by a new line
+ * Return: runs the print alphabet function ten timesi
 */
 void print_alphabet_x10(void)
 {
-int i = 0;
-while (i < 10)
+int i;
+char c;
+
+for (i = 0; i < 10; i++)
 {
-print_alphabet();
-i++;
-}
+	for (c = 'a'; c <= 'z'; c++)
+	{
+		_putchar(c);
+	}
 _putchar('\n');
+}
 }
