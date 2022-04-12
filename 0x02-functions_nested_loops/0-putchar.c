@@ -12,9 +12,9 @@ char newStr[9] = "_putchar";
 int i = 0;
 while (newStr[i] != '\0')
 {
-	putchar(newStr[i]);
+	_putchar(newStr[i]);
 	i++;
 }
-putchar('\n');
+_putchar('\n');
 return (0);
 }
