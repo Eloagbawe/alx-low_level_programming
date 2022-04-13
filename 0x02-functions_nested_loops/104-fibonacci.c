@@ -19,7 +19,7 @@ while (i < 98)
 	{
 		printf(", ");
 	}
-	i++
+	i++;
 }
 putchar('\n');
 return (0);
