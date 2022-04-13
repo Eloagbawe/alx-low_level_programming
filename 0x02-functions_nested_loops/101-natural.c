@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * natural_sum - sum of multiples of 3 and 5 below 1024
- * Return: sum of multiples of 3 and 5 below 1024
+ * main - main entry
+ * Return: 0
 */
-int natural_sum(void)
+int main(void)
 {
 int i, sum;
 for (i = 1; i < 1024; i++)
