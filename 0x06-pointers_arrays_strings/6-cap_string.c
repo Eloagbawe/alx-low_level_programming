@@ -26,7 +26,7 @@ char *cap_string(char *s)
 			{
 				if (s[a + 1] == alph)
 				{
-					s[a + 1] = s[a + 1] - 32;
+					s[a + 1] = (s[a + 1]) - 32;
 				}
 				alph++;
 			}
