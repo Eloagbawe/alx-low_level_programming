@@ -6,29 +6,28 @@
 */
 char *cap_string(char *s)
 {
-	int a;
+	int a, b;
 	char alph;
 
-	a = 0;
+	int sep[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
 
+	a = 0;
 	while (s[a] != '\0')
 	{
-		if ((s[a] == 32) || (s[a] == 9) || (s[a] == 10)
-			|| (s[a] == 44) || (s[a] == 59) ||
-			(s[a] == 46) || (s[a] == 33) ||
-			(s[a] == 63) || (s[a] == 34) ||
-			(s[a] == 40) || (s[a] == 41) ||
-			(s[a] == 123) || (s[a] == 125))
+		for (b = 0; b < 13; b++)
 		{
-			alph = 'a';
-
-			while (alph <= 'z')
+			if (s[a] == sep[b])
 			{
-				if (s[a + 1] == alph)
+				alph = 'a';
+
+				while (alph <= 'z')
 				{
-					s[a + 1] = (s[a + 1]) - 32;
+					if (s[a + 1] == alph)
+					{
+						s[a + 1] = (s[a + 1]) - 32;
+					}
+					alph++;
 				}
-				alph++;
 			}
 		}
 		a++;
