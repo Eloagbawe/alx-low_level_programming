@@ -8,22 +8,18 @@ char *rot13(char *s)
 {
 	int i, j;
 
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char alphb[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		j = i;
-		while ((((s[i] >= 65) && (s[i] <= 90)) || ((s[i] >= 97)
-			&& (s[i] <= 122))) && (j <= i))
+		for (j = 0; j < 52; j++)
 		{
-			if (((s[i] < 78) && (s[i] >= 65)) ||
-				((s[i] < 110) && (s[i] >= 97)))
+			if (s[i] == alpha[j])
 			{
-				s[i] = s[i] + 13;
+				s[i] = alphb[j];
+				break;
 			}
-			else
-			{
-				 s[i] = s[i] - 13;
-			}
-			j++;
 		}
 	}
 	return (s);
