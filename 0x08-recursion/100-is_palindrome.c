@@ -1,15 +1,15 @@
 #include "main.h"
 /**
  * last_index - checks for the last index of a string
- * @:string
+ * @s:string
  * Return: last index
 */
 
 int last_index(char *s)
 {
 	int i = 0;
-	
-	if (s > '\0')
+
+	if (*s > '\0')
 	{
 		i = i + last_index(s + 1) + 1;
 	}
