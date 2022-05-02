@@ -6,7 +6,7 @@
  * @argv: array of parameters
  * Return: always sucess
 */
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), char *argv[])
 {
 	printf("%s", argv[0]);
 	printf("\n");
