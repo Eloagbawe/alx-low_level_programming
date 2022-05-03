@@ -1,5 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+/**
+ * isNotInteger - checks if an input is an integer
+ * @s: string to be checked
+ * Return: int
+*/
+int isNotInteger(char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		if ((s[i] < 48) || (s[i] > 57))
+		{
+			return (1);
+		}
+	}
+	return (0);
+}
 
 /**
  * main - main entry point
@@ -9,43 +27,19 @@
 */
 int main(int argc, char *argv[])
 {
-	int i, sum, charSum;
+	int i, sum;
 
 	sum = 0;
-	charSum = 0;
-
-	if (argc > 1)
-	{
 	for (i = 1; i < argc; i++)
 	{
-		if (!atoi(argv[i]))
+		if (isNotInteger(argv[i]))
 		{
-			charSum += 1;
+			printf("Error\n");
+			return (1);
 		}
-		else if (atoi(argv[i]) >= 0)
-		{
-			sum += atoi(argv[i]);
-
-		}
+		sum += atoi(argv[i]);
 	}
-	}
-
-	if ((argc == 1) || ((argc > 1) && (sum == 0) && (charSum > 0)))
-	{
-		printf("%d", 0);
-		printf("\n");
-	}
-	else if ((argc > 1) && (sum > 0) && (charSum == 0))
-	{
-		printf("%d", sum);
-		printf("\n");
-	}
-	else if ((argc > 1) && (sum > 0) && (charSum > 0))
-	{
-		printf("Error");
-		printf("\n");
-		return (1);
-	}
+	printf("%d\n", sum);
 	return (0);
 
 }
