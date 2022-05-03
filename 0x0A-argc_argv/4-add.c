@@ -18,28 +18,35 @@ int main(int argc, char *argv[])
 	{
 	for (i = 1; i < argc; i++)
 	{
-		if (atoi(argv[i]))
+		if (!atoi(argv[i]))
+		{
+			charSum += 1;
+		}
+		else if (atoi(argv[i]) >= 0)
 		{
 			sum += atoi(argv[i]);
 
 		}
 		else
 		{
-			charSum += 1;
+			printf("Error");
+			printf("\n");
+			return (1);
 		}
 	}
 	}
-	if ((argc > 1) && (sum > 0) && (charSum == 0))
-	{
-		printf("%d", sum);
-		printf("\n");
-	}
-	if (((argc > 1) && (sum == 0) && (charSum > 0)) || (argc == 1))
+
+	if ((argc == 1) || ((argc > 1) && (sum == 0) && (charSum > 0)))
 	{
 		printf("%d", 0);
 		printf("\n");
 	}
-	if ((argc > 1) && (sum > 0) && (charSum > 0))
+	else if ((argc > 1) && (sum > 0) && (charSum == 0))
+	{
+		printf("%d", sum);
+		printf("\n");
+	}
+	else if ((argc > 1) && (sum > 0) && (charSum > 0))
 	{
 		printf("Error");
 		printf("\n");
