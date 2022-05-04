@@ -37,26 +37,22 @@ int checkCent(int a)
 */
 int main(int argc, char *argv[])
 {
-	int coin, num, i, diff;
+	int coin, num;
 
-	num = atoi(argv[1]);
-	coin = 0;
 	if (argc != 2)
 	{
 	printf("Error\n");
 	return (1);
 	}
-	if (num < 0)
-	{
-		printf("%d\n", 0);
-	}
-	if ((argc == 2) && (num >= 0))
-	{
-		for (i = 0; ; i++)
-		{
-			coin += 1;
-		}
 
+	num = atoi(argv[1]);
+	coin = 0;
+
+	while ((checkCent(num) > 0) && (num > 0))
+	{
+		num = num - checkCent(num);
+		coin += 1;
 	}
+	printf("%d\n", coin);
 	return (0);
-}	
+}
