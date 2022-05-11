@@ -1,5 +1,5 @@
-#ifndef SUM_H
-#define SUM_H
+#ifndef SUM_MACRO
+#define SUM_MACRO
 
-#define SUM(X,Y) ((X) + (Y))
+#define SUM(X,Y) (X + Y)
 #endif
