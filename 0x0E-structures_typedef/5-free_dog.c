@@ -6,13 +6,12 @@
  * @d: dog
  * Return: void
 */
-void free_dog(dog_t *d);
+void free_dog(dog_t *d)
 {
-	if (d == NULL)
+	if (d != NULL)
 	{
-		return;
+		free(d->name);
+		free(d->owner);
+		free(d);
 	}
-	free(d->owner);
-	free(d->name);
-	free(d);
 }
