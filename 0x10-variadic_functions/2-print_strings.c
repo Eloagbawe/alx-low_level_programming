@@ -18,11 +18,11 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	while (i < n)
 	{
-		char *p = va_arg(ap, char *);
+		const char * const p = va_arg(ap, char *);
 
 		if (p == NULL)
 		{
-			printf("nil");
+			printf("(nil)");
 		}
 		else
 		{
