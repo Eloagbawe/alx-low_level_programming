@@ -44,14 +44,7 @@ void print_string(va_list ap)
 {
 	const char *p = va_arg(ap, char *);
 
-	if (p == NULL)
-	{
-		printf("(nil)");
-	}
-	else
-	{
-		printf("%s", p);
-	}
+	printf("%s", p == NULL ? "(nil)" : p);
 }
 /**
  * print_all - function that prints anything
