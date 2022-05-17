@@ -8,18 +8,13 @@
 
 void print_all(const char * const format, ...)
 {
-	char a, b, c, d;
 	int i;
 	va_list ap;
 
-	va_start(ap, format);
-
-	a = 'c';
-	b = 'i';
-	c = 'f';
-	d = 's';
+	char a = 'c', b = 'i', c = 'f', d = 's';
 
 	i = 0;
+	va_start(ap, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == a)
@@ -28,7 +23,16 @@ void print_all(const char * const format, ...)
 		}
 		else if (format[i] == d)
 		{
-			printf("%s, ", va_arg(ap, char *));
+			const char * const p = va_arg(ap, char*);
+
+			if (p == NULL)
+			{
+				printf("(nil)");
+			}
+			else
+			{
+				printf("%s, ", p);
+			}
 		}
 		else if (format[i] == b)
 		{
@@ -40,7 +44,6 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-
 	va_end(ap);
 	printf("\n");
 }
