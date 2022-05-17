@@ -14,12 +14,33 @@ void print_all(const char * const format, ...)
 
 	va_start(ap, format);
 
+	a = 'c';
+	b = 'i';
+	c = 'f';
+	d = 's';
+
 	i = 0;
 	while (format[i] != '\0')
 	{
-		printf("%c\n", *(format + i));
+		if (format[i] == a)
+		{
+			printf("%c, ", va_arg(ap, int));
+		}
+		else if (format[i] == d)
+		{
+			printf("%s, ", va_arg(ap, char *));
+		}
+		else if (format[i] == b)
+		{
+			printf("%d, ", va_arg(ap, int));
+		}
+		else if (format[i] == c)
+		{
+			printf("%f, ", va_arg(ap, double));
+		}
 		i++;
 	}
 
 	va_end(ap);
+	printf("\n");
 }
