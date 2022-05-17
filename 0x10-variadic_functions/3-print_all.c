@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "variadic_functions.h"
+#include <stdlib.h>
 
 /**
  * print_int - prints an integer
@@ -42,7 +43,7 @@ void print_float(va_list ap)
 
 void print_string(va_list ap)
 {
-	const char *p = va_arg(ap, char *);
+	char *p = va_arg(ap, char *);
 
 	printf("%s", p == NULL ? "(nil)" : p);
 }
@@ -66,7 +67,7 @@ void print_all(const char * const format, ...)
 	};
 	i = 0;
 	va_start(ap, format);
-	while (format[i] != '\0')
+	while (format && format[i])
 	{
 		j = 0;
 
