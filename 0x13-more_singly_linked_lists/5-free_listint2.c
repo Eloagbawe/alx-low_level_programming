@@ -16,6 +16,8 @@ void free_listint2(listint_t **head)
 	{
 		return;
 	}
+	current_node = *head;
+
 	while (*head != NULL)
 	{
 		current_node = *head;
