@@ -14,4 +14,5 @@ int is_prime(int n, int y);
 int is_palindrome(char *s);
 int last_index(char *s);
 int check(char *s, int start, int end, int pair); 
+int wildcmp(char *s1, char *s2);
 #endif
