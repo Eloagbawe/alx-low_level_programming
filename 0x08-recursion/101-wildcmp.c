@@ -45,7 +45,7 @@ int check_values(char *s1, char *s2, int i, int j, int wild)
 			{
 				return (0);
 			}
-			return (check_values(s1, s2, a, wild, wild));
+			return (check_values(s1, s2, i, wild, wild));
 		}
 	}
 	if (s2[j] != '\0')
