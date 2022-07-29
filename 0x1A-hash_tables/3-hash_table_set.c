@@ -13,25 +13,14 @@ hash_node_t *ht_pair(const char *key, const char *value)
 	new_node = (hash_node_t *)malloc(sizeof(hash_node_t));
 
 	if (new_node == NULL)
-	{
 		return (NULL);
-	}
-	new_node->key = malloc(strlen(key) + 1);
-	if (new_node->key == NULL)
-	{
+	if (strcmp(key, "") == 0)
 		return (NULL);
-	}
-	new_node->value = malloc(strlen(value) + 1);
-	if (new_node->value == NULL)
-	{
-		return (NULL);
-	}
-	strcpy(new_node->key, key);
-	strcpy(new_node->value, value);
-
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
 	new_node->next = NULL;
-	return (new_node);
 
+	return (new_node);
 }
 
 /**
