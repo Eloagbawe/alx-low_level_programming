@@ -14,10 +14,18 @@ hash_node_t *ht_pair(const char *key, const char *value)
 
 	if (new_node == NULL)
 		return (NULL);
-	if (strcmp(key, "") == 0)
-		return (NULL);
 	new_node->key = strdup(key);
+	if (new_node->key == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
 	new_node->value = strdup(value);
+	if (new_node->value == NULL)
+	{
+		free(new_node);
+		return (NULL);
+	}
 	new_node->next = NULL;
 
 	return (new_node);
@@ -35,8 +43,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new_node, *entry;
 
-	if (ht == NULL || value == NULL ||
-		key == NULL || *key == '\n' || *value == '\n')
+	if (ht == NULL || key == NULL || value == NULL ||
+		*key == '\0' || *key == '\n' || *value == '\n')
 	{
 		return (0);
 	}
@@ -56,7 +64,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (strcmp(entry->key, key) == 0)
 		{
 			free(entry->value);
-			strcpy(entry->value, value);
+			entry->value = strdup(value);
 			return (1);
 		}
 		entry = entry->next;
