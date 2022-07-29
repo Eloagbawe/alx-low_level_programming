@@ -10,18 +10,13 @@ hash_node_t *ht_pair(const char *key, const char *value)
 {
 	hash_node_t *new_node;
 
-	new_node = (hash_node_t *)malloc(sizeof(hash_node_t));
+	new_node = malloc(sizeof(hash_node_t));
 
 	if (new_node == NULL)
 		return (NULL);
 	new_node->key = strdup(key);
-	if (new_node->key == NULL)
-	{
-		free(new_node);
-		return (NULL);
-	}
 	new_node->value = strdup(value);
-	if (new_node->value == NULL)
+	if (new_node->key == NULL || new_node->value == NULL)
 	{
 		free(new_node);
 		return (NULL);
@@ -44,7 +39,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node, *entry;
 
 	if (ht == NULL || key == NULL || value == NULL ||
-		*key == '\0' || *key == '\n' || *value == '\n')
+		*key == '\0')
 	{
 		return (0);
 	}
