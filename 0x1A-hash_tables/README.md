@@ -41,3 +41,11 @@ You are allowed to copy and paste the function from [this page](https://gist.git
 			where ht is the hash table you want to look into
 			and key is the key you are looking for
 		Returns the value associated with the element, or NULL if key couldn’t be found
+
+5. Write a function that prints a hash table.
+
+		Prototype: void hash_table_print(const hash_table_t *ht);
+			where ht is the hash table
+		You should print the key/value in the order that they appear in the array of hash table
+			Order: array, list
+		If ht is NULL, don’t print anything
