@@ -49,3 +49,8 @@ You are allowed to copy and paste the function from [this page](https://gist.git
 		You should print the key/value in the order that they appear in the array of hash table
 			Order: array, list
 		If ht is NULL, don’t print anything
+
+6. Write a function that deletes a hash table.
+
+		Prototype: void hash_table_delete(hash_table_t *ht);
+			where ht is the hash table
