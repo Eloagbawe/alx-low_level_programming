@@ -14,7 +14,7 @@ void print_array(int *a, int start, int end)
 		printf("%d", a[start]);
 		if (start < (end))
 			printf(", ");
-		start ++;
+		start++;
 	}
 	printf("\n");
 }
