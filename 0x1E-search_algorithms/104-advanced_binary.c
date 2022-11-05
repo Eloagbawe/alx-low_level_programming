@@ -39,23 +39,25 @@ int binary_s(int *array, int value, int start, int end)
 		middle = start + (end - start) / 2;
 		printf("Searching in array: ");
 		print_array(array, start, end);
-		if (value == array[start])
-			return (start);
-		else if (value == array[middle])
-		{
-			if (array[middle - 1] == value)
-				return (binary_s(array, value, start, middle));
-			return (middle);
-		}
-		else if (value > array[middle])
+		if (value > array[middle])
 		{
 			return (binary_s(array, value, middle + 1, end));
 		}
-		else
+		else if (value < array[middle])
 		{
 			return (binary_s(array, value, start, middle - 1));
 		}
+		else if (start != middle)
+		{
+			return (binary_s(array, value, start, middle));
+		}
+		else {
+			// if (array[middle - 1] == value)
+			// 	return (binary_s(array, value, start, middle));
+			return (middle);
+		}
 	}
+
 }
 /**
  * advanced_binary - searches for a value in an array of integers using
