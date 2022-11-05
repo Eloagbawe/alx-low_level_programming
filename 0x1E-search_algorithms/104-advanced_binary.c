@@ -39,19 +39,19 @@ int binary_s(int *array, int value, int start, int end)
 		middle = start + (end - start) / 2;
 		printf("Searching in array: ");
 		print_array(array, start, end);
-		if (value > array[middle])
-		{
-			return (binary_s(array, value, middle + 1, end));
-		}
-		else if (value < array[middle])
-		{
-			return (binary_s(array, value, start, middle - 1));
-		}
-		else
+		if (value == array[middle])
 		{
 			if (array[middle - 1] == value)
 				return (binary_s(array, value, start, middle));
 			return (middle);
+		}
+		else if (value > array[middle])
+		{
+			return (binary_s(array, value, middle + 1, end));
+		}
+		else
+		{
+			return (binary_s(array, value, start, middle - 1));
 		}
 	}
 
