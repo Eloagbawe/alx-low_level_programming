@@ -41,7 +41,7 @@ int binary_s(int *array, int value, int start, int end)
 		print_array(array, start, end);
 		if (value == array[start])
 			return (start);
-		if (value == array[middle])
+		else if (value == array[middle])
 		{
 			if (array[middle - 1] == value)
 				return (binary_s(array, value, start, middle));
