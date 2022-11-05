@@ -47,16 +47,10 @@ int binary_s(int *array, int value, int start, int end)
 		{
 			return (binary_s(array, value, start, middle - 1));
 		}
-		else if (start != middle)
-		{
-			return (binary_s(array, value, start, middle));
-		}
 		else
 		{
-			/*
-			* if (array[middle - 1] == value)
-			* return (binary_s(array, value, start, middle));
-			*/
+			if (array[middle - 1] == value)
+				return (binary_s(array, value, start, middle));
 			return (middle);
 		}
 	}
