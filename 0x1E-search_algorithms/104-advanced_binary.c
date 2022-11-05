@@ -30,7 +30,7 @@ int binary_s(int *array, int value, int start, int end)
 {
 	int middle;
 
-	if (start > end)
+	if (start > end || array == NULL)
 	{
 		return (-1);
 	}
@@ -72,7 +72,7 @@ int advanced_binary(int *array, size_t size, int value)
 	start = 0;
 	end = size - 1;
 
-	if (array != NULL)
+	if (array != NULL && size != 0)
 	{
 		return (binary_s(array, value, start, end));
 	}
