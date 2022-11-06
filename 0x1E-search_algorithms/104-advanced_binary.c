@@ -1,24 +1,6 @@
 #include "search_algos.h"
 
 /**
- * print_array - prints an array of integers
- * @a: array to be checked
- * @start: start index of the array
- * @end: end index of the array
- * Return: void
-*/
-void print_array(int *a, int start, int end)
-{
-	while (start <= end)
-	{
-		printf("%d", a[start]);
-		if (start < (end))
-			printf(", ");
-		start++;
-	}
-	printf("\n");
-}
-/**
  * binary_s - helper function for the advanced binary search
  * @array: array to be checked
  * @value: value to be checked
@@ -28,7 +10,7 @@ void print_array(int *a, int start, int end)
 */
 int binary_s(int *array, int value, int start, int end)
 {
-	int middle;
+	int middle, print_start;
 
 	if (start > end)
 	{
@@ -38,7 +20,15 @@ int binary_s(int *array, int value, int start, int end)
 	{
 		middle = start + (end - start) / 2;
 		printf("Searching in array: ");
-		print_array(array, start, end);
+		print_start = start;
+		while (print_start <= end)
+		{
+			printf("%d", array[print_start]);
+			if (print_start < (end))
+				printf(", ");
+			print_start++;
+		}
+		printf("\n");
 		if (value == array[middle - 1])
 		{
 			return (binary_s(array, value, start, middle));
