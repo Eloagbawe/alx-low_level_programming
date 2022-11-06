@@ -69,11 +69,10 @@ int advanced_binary(int *array, size_t size, int value)
 {
 	size_t start, end;
 
-	start = 0;
-	end = size - 1;
-
-	if (array != NULL)
+	if (array != NULL && size > 0)
 	{
+		start = 0;
+		end = size - 1;
 		return (binary_s(array, value, start, end));
 	}
 	return (-1);
