@@ -30,7 +30,7 @@ int binary_s(int *array, int value, int start, int end)
 {
 	int middle;
 
-	if (start > end || array == NULL)
+	if (start > end)
 	{
 		return (-1);
 	}
@@ -39,10 +39,12 @@ int binary_s(int *array, int value, int start, int end)
 		middle = start + (end - start) / 2;
 		printf("Searching in array: ");
 		print_array(array, start, end);
-		if (value == array[middle])
+		if (value == array[middle - 1])
 		{
-			if (array[middle - 1] == value)
-				return (binary_s(array, value, start, middle));
+			return (binary_s(array, value, start, middle));
+		}
+		else if (value == array[middle])
+		{
 			return (middle);
 		}
 		else if (value > array[middle])
@@ -54,7 +56,6 @@ int binary_s(int *array, int value, int start, int end)
 			return (binary_s(array, value, start, middle - 1));
 		}
 	}
-
 }
 /**
  * advanced_binary - searches for a value in an array of integers using
@@ -71,7 +72,7 @@ int advanced_binary(int *array, size_t size, int value)
 	start = 0;
 	end = size - 1;
 
-	if (array != NULL && size != 0)
+	if (array != NULL)
 	{
 		return (binary_s(array, value, start, end));
 	}
