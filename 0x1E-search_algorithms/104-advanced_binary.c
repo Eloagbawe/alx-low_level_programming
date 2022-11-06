@@ -47,13 +47,13 @@ int binary_s(int *array, int value, int start, int end)
 		{
 			return (middle);
 		}
-		else if (value > array[middle])
+		else if (value < array[middle])
 		{
-			return (binary_s(array, value, middle + 1, end));
+			return (binary_s(array, value, start, middle - 1));
 		}
 		else
 		{
-			return (binary_s(array, value, start, middle - 1));
+			return (binary_s(array, value, middle + 1, end));
 		}
 	}
 }
